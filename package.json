@@ -4,7 +4,9 @@
   "description": "sip-alain",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "prepublish": "tsc",
+    "tsc": "tsc"
   },
   "repository": {
     "type": "git",
@@ -37,6 +39,7 @@
   },
   "devDependencies": {
     "@types/node": "~6.0.60",
+    "tsc": "^1.20150623.0",
     "typescript": "~2.6.0"
   }
 }

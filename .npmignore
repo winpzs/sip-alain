@@ -1,5 +1,4 @@
 .idea/
 .rpt2_cache/
 node_modules
-.git
-dist
+package-lock.json
