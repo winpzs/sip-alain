@@ -2,8 +2,7 @@ var gulp = require('gulp'),
     typescript = require('gulp-typescript'),
     sourcemaps = require('gulp-sourcemaps'),
     rollup = require('rollup'),
-    rollupTypescript = require('rollup-plugin-typescript2'),
-    nodeResolve = require('rollup-plugin-node-resolve-angular');
+    rollupTypescript = require('rollup-plugin-typescript2');
 
 // const globals = {
 //     '@angular/core': 'ng.core',
@@ -27,7 +26,6 @@ gulp.task('build', function () {
     return rollup.rollup({
         input: "./src/app/sip-alain/index.ts",
         plugins: [
-            // nodeResolve({ jsnext: true, main: true }),
             rollupTypescript({
                 tsconfig: './tsconfig-build.json'
             })
