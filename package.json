@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm test",
-    "prepublish": "tsc",
-    "tsc": "tsc"
+    "prepublish": "tsc"
   },
   "repository": {
     "type": "git",
@@ -23,6 +22,8 @@
   "homepage": "https://github.com/winpzs/sip-alain#readme",
   "dependencies": {
     "@angular/common": "^5.0.0",
+    "@angular/platform-browser": "^5.0.0",
+    "@angular/animations": "^5.0.0",
     "@angular/core": "^5.0.0",
     "@angular/forms": "^5.0.0",
     "@angular/http": "^5.0.0",
@@ -35,11 +36,12 @@
     "@delon/cache": "^0.6.5",
     "@ngx-translate/core": "^9.0.0",
     "ng-zorro-antd": "^0.6.5",
+    "ng-zorro-antd-extra": "^1.1.6",
+    "ngx-countdown": "^2.0.0",
     "rxjs": "^5.5.5"
   },
   "devDependencies": {
     "@types/node": "~6.0.60",
-    "tsc": "^1.20150623.0",
     "typescript": "~2.6.0"
   }
 }
