@@ -1,4 +1,4 @@
-import { NgModule, Optional, SkipSelf, LOCALE_ID, APP_INITIALIZER, Type } from '@angular/core';
+import { NgModule, Optional, SkipSelf, LOCALE_ID, APP_INITIALIZER, Type, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
@@ -57,7 +57,8 @@ export class SipAlainModule {
         }
     }
 
-    static forRoot(config: Type<SipAlainConfig>): any {
+    static forRoot(config: Type<SipAlainConfig>): ModuleWithProviders {
+        
         return {
             ngModule: SipAlainModule,
             providers: [

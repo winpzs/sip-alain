@@ -1,8 +1,11 @@
 import { Lib } from './lib';
-import { Type } from '@angular/core';
+import { Type, Injector } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpClient } from '@angular/common/http';
 
 export abstract class SipAlainConfig {
+
+    // constructor(private injector: Injector) { }
+
     i18n: {
         prefix: string;
         suffix: string;
