@@ -214,8 +214,8 @@ export class SipRestService {
     /**
      * GET请求
      *
-     * @param {string} url URL地址
-     * @param {*} [params] 请求参数
+     * @param url URL地址
+     * @param p 请求参数
      */
     get<T=any>(url: string, p?: SipRestParam): Observable<SipRestRet<T>> {
         let params: any = p && p.params;
@@ -230,10 +230,8 @@ export class SipRestService {
     /**
      * POST请求
      *
-     * @param {string} url URL地址
-     * @param {*} [body] body内容
-     * @param {*} [params] 请求参数
-     * @param {*} [bodyType] formData类型
+     * @param url URL地址
+     * @param p 参数
      */
     post<T=any>(url: string, p?: SipRestParam): Observable<SipRestRet<T>> {
         let params: any = p && p.params,
@@ -257,8 +255,8 @@ export class SipRestService {
     /**
      * DELETE请求
      *
-     * @param {string} url URL地址
-     * @param {*} [params] 请求参数
+     * @param url URL地址
+     * @param p 请求参数
      */
     delete<T=any>(url: string, p?: SipRestParam): Observable<SipRestRet<T>> {
         let params: any = p && p.params;
@@ -274,8 +272,8 @@ export class SipRestService {
     /**
      * DELETE请求
      *
-     * @param {string} url URL地址
-     * @param {*} [params] 请求参数
+     * @param url URL地址
+     * @param p 请求参数
      */
     put<T=any>(url: string, p?: SipRestParam): Observable<SipRestRet<T>> {
         let params: any = p && p.params;

@@ -2,7 +2,6 @@
 let stringEmpty = "",
     toString = Object.prototype.toString,
     core_hasOwn = Object.prototype.hasOwnProperty,
-    noop = function () { },
     slice = Array.prototype.slice;
 
 function testObject(obj: any) {
@@ -16,7 +15,7 @@ function testObject(obj: any) {
 export class Lib {
     static stringEmpty = stringEmpty;
 
-    static noop = noop;
+    static noop() { }
 
     static hasOwnProp(obj: any, prop: string) {
         return core_hasOwn.call(obj, prop);
@@ -98,8 +97,12 @@ export class Lib {
     static isElement(obj: any) { var t = obj && (obj.ownerDocument || obj).documentElement; return t ? true : false; }
 
     static trim(str: string, newline?: boolean) {
-        return str ? (newline ? str.replace(/^(?:\s|\u3000|\ue4c6|\n|\r)*|(?:\s|\u3000|\ue4c6|\n|\r)*$/g, '') :
-            str.replace(/^(?:\s|\u3000|\ue4c6)*|(?:\s|\u3000|\ue4c6)*$/g, '')) : '';
+        if (str) {
+            return newline ? str.replace(/^(?:\s|\u3000|\ue4c6|\n|\r)*|(?:\s|\u3000|\ue4c6|\n|\r)*$/g, '') :
+                str.replace(/^(?:\s|\u3000|\ue4c6)*|(?:\s|\u3000|\ue4c6)*$/g, '');
+        } else {
+            return '';
+        }
     }
 
     static replaceAll(s: string, str: string, repl: string, flags: string = "g") {
@@ -168,14 +171,14 @@ export class Lib {
         return [t, _tick].join('_');
     }
 
-    static format(str:string, ...args: any[]):string {
+    static format(str: string, ...args: any[]): string {
         Lib.each(args, function (item, index) {
             str = Lib.replaceAll(str, '{' + index + '}', item);
         });
         return str;
     }
 
-    static formatObject(str:string, ...args: any[]):string {
+    static formatObject(str: string, ...args: any[]): string {
         Lib.each(args, function (item, index) {
             str = Lib.replaceAll(str, '{' + index + '}', item);
         });

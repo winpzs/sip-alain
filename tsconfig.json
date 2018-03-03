@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
+    "outDir": "./dist",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -14,22 +14,7 @@
     "lib": [
       "es2017",
       "dom"
-    ],
-    "baseUrl": "src/",
-    "paths": {
-        "@shared": [ "app/shared" ],
-        "@shared/*": [ "app/shared/*" ],
-        "@core": [ "app/core/" ],
-        "@core/*": [ "app/core/*" ],
-        "@testing": [ "testing/" ],
-        "@testing/*": [ "testing/*" ],
-        "@env": [ "environments/" ],
-        "@env/*": [ "environments/*" ],
-        "@sip": [ "app/routes/sip/" ],
-        "@sip/*": [ "app/routes/sip/*" ],
-        "@routes": [ "app/routes/" ],
-        "@routes/*": [ "app/routes/*" ]
-    }
+    ]
   },
   "exclude": [
       "node_modules",

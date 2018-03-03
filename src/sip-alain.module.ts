@@ -25,6 +25,7 @@ import { StartupService } from './delon/startup/startup.service';
 import { SipAlainCoreModule } from './core/sip-alain-core.module';
 
 export function StartupServiceFactory(startupService: StartupService, config:SipAlainConfig): Function {
+    let a;
     return () => startupService.load(config).then(function () { return config.startup(); });
 }
 

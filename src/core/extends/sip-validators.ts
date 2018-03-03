@@ -2,12 +2,12 @@ import { Validators, FormControl } from '@angular/forms';
 import { Lib } from './lib';
 
 export class SipValidators {
-    static required = function (control: FormControl) {
+    static required(control: FormControl) {
         let ret = Validators.required(control);
         if (ret) ret.requiredText = '请输入或选择值';
         return ret;
     };
-    static min = function (min: number) {
+    static min(min: number) {
         let vFn = Validators.min(min);
         return function (control: FormControl) {
             let ret = vFn(control);
@@ -15,7 +15,7 @@ export class SipValidators {
             return ret;
         }
     };
-    static max = function (max: number) {
+    static max(max: number) {
         let vFn = Validators.max(max);
         return function (control: FormControl) {
             let ret = vFn(control);
@@ -23,7 +23,7 @@ export class SipValidators {
             return ret;
         }
     };
-    static minLength = function (min: number) {
+    static minLength(min: number) {
         let vFn = Validators.minLength(min);
         return function (control: FormControl) {
             let ret = vFn(control);
@@ -31,7 +31,7 @@ export class SipValidators {
             return ret;
         }
     };
-    static maxLength = function (max: number) {
+    static maxLength(max: number) {
         let vFn = Validators.maxLength(max);
         return function (control: FormControl) {
             let ret = vFn(control);
@@ -39,12 +39,12 @@ export class SipValidators {
             return ret;
         }
     };
-    static email = function (control: FormControl) {
+    static email(control: FormControl) {
         let ret = Validators.email(control);
         if (ret) ret.emailText = '非法email';
         return ret;
     };
-    static pattern = function (pattern: string | RegExp) {
+    static pattern(pattern: string | RegExp) {
         let vFn = Validators.pattern(pattern);
         return function (control: FormControl) {
             let ret = vFn(control);
@@ -52,7 +52,8 @@ export class SipValidators {
             return ret;
         }
     };
-    static range = function (min: number, max: number) {
+    static range(min: number, max: number) {
+        let a;
         return function (control: FormControl) {
             let value = ~~control.value;
             if (value < min || value > max)
@@ -62,7 +63,8 @@ export class SipValidators {
                 };
         };
     };
-    static rangeLength = function (minLength: number, maxLength: number) {
+    static rangeLength(minLength: number, maxLength: number) {
+        let a;
         return function (control: FormControl) {
             let value = control.value;
             let len = value ? (value + '').length : 0;
@@ -75,7 +77,8 @@ export class SipValidators {
                 };
         };
     };
-    static confirm = function (confirmControl: FormControl) {
+    static confirm(confirmControl: FormControl) {
+        let a;
         return function (control: FormControl): { [s: string]: boolean } {
             if (control.value !== confirmControl.value) {
                 return { confirm: true, error: true };

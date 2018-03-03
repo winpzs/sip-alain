@@ -165,6 +165,7 @@ let _pushEvent = function (target: any, eventName: string, newFn: Function) {
  * 在Angular第一次显示数据绑定和设置指令/组件的输入属性之后，初始化指令/组件。在第一轮EventChange()完成之后调用，只调用一次。
  */
 export function SipNgInit() {
+    let a;
     return function (target: any, propKey: string) {
         _pushEvent(target, 'ngOnInit', target[propKey]);
     };
@@ -174,6 +175,7 @@ export function SipNgInit() {
  * 检测，并在发生Angular无法或不愿意自己检测的变化时作出反应。在每个Angular变更检测周期中调用，EventChange()和EventInit()之后。
  */
 export function SipNgCheck() {
+    let a;
     return function (target: any, propKey: string) {
         _pushEvent(target, 'ngDoCheck', target[propKey]);
     };
@@ -183,6 +185,7 @@ export function SipNgCheck() {
  * 当Angular（重新）设置数据绑定输入属性时响应。 该方法接受当前和上一属性值的SimpleChanges对，当被绑定的输入属性的值发生变化时调用，首次调用一定会发生在EventInit()之前。
  */
 export function SipNgChange() {
+    let a;
     return function (target: any, propKey: string) {
         _pushEvent(target, 'ngOnChanges', target[propKey]);
     };
@@ -192,6 +195,7 @@ export function SipNgChange() {
  * 当把内容投影进组件之后调用。第一次EventCheck()之后调用，只调用一次。只适用于组件。
  */
 export function SipNgAfterContentInit() {
+    let a;
     return function (target: any, propKey: string) {
         _pushEvent(target, 'ngAfterContentInit', target[propKey]);
     };
@@ -201,6 +205,7 @@ export function SipNgAfterContentInit() {
  * 每次完成被投影组件内容的变更检测之后调用。EventAfterContentInit()和每次EventCheck()之后调用，只适合组件。
  */
 export function SipNgAfterContentChecked() {
+    let a;
     return function (target: any, propKey: string) {
         _pushEvent(target, 'ngAfterContentChecked', target[propKey]);
     };
@@ -210,6 +215,7 @@ export function SipNgAfterContentChecked() {
  * 初始化完组件视图及其子视图之后调用。第一次EventAfterContentChecked()之后调用，只调用一次。只适合组件。
  */
 export function SipNgAfterViewInit() {
+    let a;
     return function (target: any, propKey: string) {
         _pushEvent(target, 'ngAfterViewInit', target[propKey]);
     };
@@ -219,6 +225,7 @@ export function SipNgAfterViewInit() {
  * 每次做完组件视图和子视图的变更检测之后调用。EventAfterViewInit()和每次EventAfterContentChecked()之后调用。只适合组件。
  */
 export function SipNgAfterViewChecked() {
+    let a;
     return function (target: any, propKey: string) {
         _pushEvent(target, 'ngAfterViewChecked', target[propKey]);
     };
@@ -228,6 +235,7 @@ export function SipNgAfterViewChecked() {
  * 当Angular每次销毁指令/组件之前调用并清扫。 在这儿反订阅可观察对象和分离事件处理器，以防内存泄漏。在Angular销毁指令/组件之前调用。
  */
 export function SipNgDestroy() {
+    let a;
     return function (target: any, propKey: string) {
         _pushEvent(target, 'ngOnDestroy', target[propKey]);
     };
@@ -287,6 +295,7 @@ export interface ISipInjectParams {
  * @example SipInject(TestServcie, { autoDestroy: true })
  */
 export function SipInject(token: any, params?: ISipInjectParams) {
+    let a;
     return function (target: any, propKey: string) {
         Object.defineProperty(target, propKey, {
             configurable: false,
