@@ -9,7 +9,6 @@ export interface IContextMenu {
     items: IMenuItem[];
 }
 
-export declare function ContextMenuFactory(menu: IContextMenu): void;
 
 @Component({
     selector: 'sip-contextmenu',
@@ -30,7 +29,7 @@ export class ContextmenuComponent extends SipComponent {
     private pElement: HTMLElement;
 
     @Input() menu: IContextMenu;
-    @Input() menuFactory: typeof ContextMenuFactory
+    @Input() menuFactory: any;
 
     _left = '0';
     _top = '0';

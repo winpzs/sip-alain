@@ -68,28 +68,14 @@ export class SipEventService {
     /**
      * 订阅信息
      * @param event 事件名称
-     * @param owner 订阅者
-     */
-    public subscribe(event: string, owner?: any): Observable<any>;
-    /**
-     * 订阅信息
-     * @param event 事件名称
      * @param callback 成功内容
      * @param error 失败内容
      * @param complete 完成内容
      * @param owner 订阅者
      */
-    public subscribe(event: string, callback: (value: any) => void, error?: (error: any) => void, complete?: () => void, owner?: any): Subscription;
-    public subscribe(event: string, callback?: (value: any) => void, error?: (error: any) => void, complete?: () => void, owner?: any) {
-        if (!event) {
-            throw new Error(_notEvent);
-        }
+    public subscribe(event: string, callback?: (value: any) => void, error?: (error: any) => void, complete?: () => void, owner?: any):any {
+        return this._setEvent(event, owner).subscribe(callback, error, complete);
 
-        if (typeof callback !== 'function') {
-            return this._setEvent(event, callback).asObservable();
-        } else {
-            return this._setEvent(event, owner).subscribe(callback, error, complete);
-        }
     }
 
     /**

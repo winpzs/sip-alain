@@ -853,7 +853,7 @@ export class SipParent {
      * 订阅信息
      * @param event 事件名称
      */
-    public $subscribe(event: string): Observable<any>;
+    // public $subscribe(event: string): Observable<any>;
     /**
      * 订阅信息
      * @param event 事件名称
@@ -861,11 +861,11 @@ export class SipParent {
      * @param error 失败内容
      * @param complete 完成内容
      */
-    public $subscribe(event: string, callback: (value?: any) => void, error?: (error?: any) => void, complete?: () => void): Subscription;
-    public $subscribe(event: string, callback?: (value?: any) => void, error?: (error?: any) => void, complete?: () => void) {
-        if (!Lib.isFunction(callback))
-            return this._$eventSrv.subscribe(event, this);
-        else
+    // public $subscribe(event: string, callback: (value?: any) => void, error?: (error?: any) => void, complete?: () => void): Subscription;
+    public $subscribe(event: string, callback?: (value?: any) => void, error?: (error?: any) => void, complete?: () => void):Subscription {
+        // if (!Lib.isFunction(callback))
+        //     return this._$eventSrv.subscribe(event, this);
+        // else
             return this._$eventSrv.subscribe(event, callback, error, complete, this);
     }
 

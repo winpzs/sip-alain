@@ -1,6 +1,6 @@
 
 export * from './src/core/extends/lib';
-export * from './src/core/extends/rxjs';
+// export * from './src/core/extends/rxjs';
 export * from './src/core/extends/sip-validators';
 export * from './src/core/extends/sip-helper';
 export * from './src/core/extends/sip-alain-config';

@@ -20,6 +20,7 @@
       "node_modules",
       "dist",
       "tonpm",
-      "./src/app/delon/**"
+      "./src/app/delon/**",
+      ".ng_pkg_build"
   ]
 }
