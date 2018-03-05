@@ -8,7 +8,6 @@ import 'rxjs/add/observable/throw';
 
 import { Lib } from 'sip-lib';
 import { HttpHeaders } from '@angular/common/http';
-import '../extends/rxjs';
 import { SipAlainConfig } from '../extends/sip-alain-config';
 
 //#region rest helper

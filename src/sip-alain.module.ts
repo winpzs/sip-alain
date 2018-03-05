@@ -12,7 +12,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { ALAIN_I18N_TOKEN } from '@delon/theme';
 import { I18NService } from './delon/i18n/i18n.service';
 
-export function HttpLoaderFactory(http: HttpClient, config:SipAlainConfig) {
+export function HttpLoaderFactory(http: HttpClient, config: SipAlainConfig) {
     return config.i18nLoader(http);
 }
 
@@ -24,7 +24,7 @@ import { SipAlainConfig, SetSipAlainConfig, GetSipAlainConfig } from './core/ext
 import { StartupService } from './delon/startup/startup.service';
 import { SipAlainCoreModule } from './core/sip-alain-core.module';
 
-export function StartupServiceFactory(startupService: StartupService, config:SipAlainConfig): Function {
+export function StartupServiceFactory(startupService: StartupService, config: SipAlainConfig): Function {
     let a;
     return () => startupService.load(config).then(function () { return config.startup(); });
 }
@@ -45,7 +45,7 @@ export function StartupServiceFactory(startupService: StartupService, config:Sip
         HttpClientModule
     ],
     providers: [
-        
+
     ],
     exports: [
         DelonModule
@@ -59,7 +59,7 @@ export class SipAlainModule {
     }
 
     static forRoot(config: Type<SipAlainConfig>): ModuleWithProviders {
-        
+
         return {
             ngModule: SipAlainModule,
             providers: [
