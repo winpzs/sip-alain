@@ -15,7 +15,7 @@
   "scripts": {
     "test": "ng test -sr -sm=false",
     "build": "ng-packagr -p package.json",
-    "npmlink": "npm link ./dist"
+    "npmpublic": "npm run build && npm pu ./dist"
   },
   "ngPackage": {
     "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
