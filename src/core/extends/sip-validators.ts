@@ -1,5 +1,5 @@
 import { Validators, FormControl } from '@angular/forms';
-import { Lib } from './lib';
+import { Lib } from 'sip-lib';
 
 export class SipValidators {
     static required(control: FormControl) {

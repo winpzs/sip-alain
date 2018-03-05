@@ -1,6 +1,6 @@
 {
   "name": "sip-alain",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "ng-zorro-antd admin panel front-end framework",
   "author": "sip",
   "homepage": "https://github.com/winpzs/sip-alain/",
@@ -14,7 +14,8 @@
   "license": "MIT",
   "scripts": {
     "test": "ng test -sr -sm=false",
-    "build": "ng-packagr -p package.json"
+    "build": "ng-packagr -p package.json",
+    "npmlink": "npm link ./dist"
   },
   "ngPackage": {
     "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
@@ -24,7 +25,7 @@
         "dom",
         "es2017"
       ],
-      "comments" : "none"
+      "comments": "none"
     }
   },
   "dependencies": {},
@@ -51,6 +52,7 @@
     "ng-zorro-antd-extra": "^1.1.7",
     "ngx-countdown": "^2.0.4",
     "rxjs": "^5.5.5",
+    "sip-lib": "0.0.1",
     "typescript": "~2.6.0",
     "zone.js": "^0.8.18"
   }

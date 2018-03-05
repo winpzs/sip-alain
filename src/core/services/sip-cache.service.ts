@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Lib } from '../extends/lib';
+import { Lib } from 'sip-lib';
 
 let undef;
 

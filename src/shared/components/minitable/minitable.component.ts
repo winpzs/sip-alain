@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { MinicolumnComponent } from './minicolumn.component';
 import { ContextmenuComponent, IContextMenu } from '../menu/contextmenu.component';
-import { Lib } from '../../../core/extends/lib';
+import { Lib } from 'sip-lib';
 import { SipComponent, SipNgDestroy, SipNgInit } from '../../../core/extends/sip-helper';
 import { SipRestSqlRet } from '../../../core/services/sip-rest.service';
 

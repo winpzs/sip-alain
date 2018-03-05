@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ViewContainerRef, TemplateRef, ComponentRef, Input, ViewRef, EventEmitter, Output } from '@angular/core';
 import { IMenuItem } from './menu-item';
-import { Lib } from '../../../core/extends/lib';
+import { Lib } from 'sip-lib';
 import { SipAppContainerService } from '../../../core/services/sip-app-container.service';
 import { SipComponent, SipNgInit, SipNgDestroy } from '../../../core/extends/sip-helper';
 

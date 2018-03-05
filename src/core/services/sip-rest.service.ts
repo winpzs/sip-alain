@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/throw';
 
-import { Lib } from '../extends/lib';
+import { Lib } from 'sip-lib';
 import { HttpHeaders } from '@angular/common/http';
 import '../extends/rxjs';
 import { SipAlainConfig } from '../extends/sip-alain-config';

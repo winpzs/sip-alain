@@ -1,4 +1,4 @@
-import { Lib } from './lib';
+import { Lib } from 'sip-lib';
 import { Type, Injector } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpClient } from '@angular/common/http';
 

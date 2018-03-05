@@ -2,7 +2,7 @@ import { ViewContainerRef, Injector, Type, ComponentRef, ComponentFactoryResolve
 import { ActivatedRoute, ActivatedRouteSnapshot, Router } from "@angular/router";
 import { Observable } from "rxjs/Observable";
 import { Subscription } from "rxjs/Subscription";
-import { Lib } from './lib';
+import { Lib } from 'sip-lib';
 import { SipRestService, SipHttpOptions, SipRestRet, SipRestSqlRet, ISipRestDict } from '../services/sip-rest.service';
 import { MenuService, Menu } from "@delon/theme";
 import { Subject } from "rxjs/Subject";
@@ -1120,42 +1120,6 @@ export class SipUiBase extends SipParent {
     }
 
 }
-
-const SipProvideParents = function (component: any, parentType?: any): any[] {
-    let list = [];
-    if (parentType) {
-        list.push({ provide: parentType, useExisting: forwardRef(() => component) });
-        if (parentType == SipModal || parentType == SipPage) {
-            list.push({ provide: SipBusinessComponent, useExisting: forwardRef(() => component) });
-        }
-    }
-    list.push({ provide: SipUiBase, useExisting: forwardRef(() => component) });
-    return list;
-};
-/**
- * 注入当前页面，方便子组件引用
- * @param component 页面类
- * @example providers: [...SipProvidePage(TestListComponent)]
- */
-export const SipProvidePage = function (component: any): any[] {
-    return SipProvideParents(component, SipPage);
-};
-/**
- * 注入当前对话框，方便子组件引用
- * @param component 对话框类
- * @example providers: [...SipProvideModal(TestModalComponent)]
- */
-export const SipProvideModal = function (component: any): any[] {
-    return SipProvideParents(component, SipModal);
-};
-/**
- * 注入当前组件，方便子组件引用
- * @param component 组件类
- * @example providers: [...SipProvideComponent(TestComponent)]
- */
-export const SipProvideComponent = function (component: any): any[] {
-    return SipProvideParents(component, SipComponent);
-};
 
 /**服务基础类 */
 export class SipService extends SipParent {
