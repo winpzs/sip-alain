@@ -43,11 +43,11 @@ export class StartupService {
             ).subscribe(([langData, appData]) => {
 
                 // setting language data
-                this.translate.setTranslation(this.i18n.defaultLang, langData);
+                this.translate.setTranslation(this.i18n.defaultLang, langData.datas);
                 this.translate.setDefaultLang(this.i18n.defaultLang);
 
                 // application data
-                const res: any = appData;
+                const res: any = appData.datas;
                 // 应用信息：包括站点名、描述、年份
                 this.settingService.setApp(res.app);
                 // 用户信息：包括姓名、头像、邮箱地址
