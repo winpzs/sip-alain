@@ -15,7 +15,8 @@
   "scripts": {
     "test": "ng test -sr -sm=false",
     "build": "ng-packagr -p package.json",
-    "npmpublic": "npm run build && npm pu ./dist"
+    "npmpublic": "npm run build && npm pu ./dist",
+    "totest":"npm run build && gulp totest"
   },
   "ngPackage": {
     "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
@@ -47,6 +48,7 @@
     "@ngx-translate/http-loader": "^2.0.0",
     "@types/node": "~6.0.60",
     "core-js": "^2.5.1",
+    "gulp": "^3.9.1",
     "ng-packagr": "^2.1.0",
     "ng-zorro-antd": "^0.6.15",
     "ng-zorro-antd-extra": "^1.1.7",
