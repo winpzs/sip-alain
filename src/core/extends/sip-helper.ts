@@ -720,12 +720,10 @@ export function SipFormSubmit(...forms: string[]) {
     };
 }
 
-export interface ISipFormGroupModel<T=any> {
-    $toJSONObject: () => T;
-}
-
 export interface ISipFormGroup<T=any> extends FormGroup {
-    $model: ISipFormGroupModel<T>;
+    $model: T;
+    $toJSONObject: () => T
+    [key: string]: any;
 }
 
 export function SipFormGroup(model: any, validators?: { [key: string]: any }, extra?: { [key: string]: any }) {
@@ -733,13 +731,7 @@ export function SipFormGroup(model: any, validators?: { [key: string]: any }, ex
 
         _pushEvent(target, 'sipOnConstructor', function () {
             let valids = {};
-            let modelObj = {
-                $toJSONObject: function () {
-                    let obj = Lib.extend({}, this);
-                    delete obj['$toJSONObject'];
-                    return obj;
-                }
-            };
+            let modelObj = {};
             Lib.eachProp(model, function (item, name) {
                 if (validators[name])
                     valids[name] = [item, validators[name]];
@@ -773,6 +765,13 @@ export function SipFormGroup(model: any, validators?: { [key: string]: any }, ex
                 },
                 set: function (value) {
                     Object.assign(modelObj, value || {});
+                }
+            });
+            Object.defineProperty(formGroup, '$toJSONObject', {
+                enumerable: true, configurable: false,
+                get: function () {
+                    let obj = Lib.extend({}, this.$model);
+                    return obj;
                 }
             });
             this[propKey] = formGroup;
@@ -862,11 +861,11 @@ export class SipParent {
      * @param complete 完成内容
      */
     // public $subscribe(event: string, callback: (value?: any) => void, error?: (error?: any) => void, complete?: () => void): Subscription;
-    public $subscribe(event: string, callback?: (value?: any) => void, error?: (error?: any) => void, complete?: () => void):Subscription {
+    public $subscribe(event: string, callback?: (value?: any) => void, error?: (error?: any) => void, complete?: () => void): Subscription {
         // if (!Lib.isFunction(callback))
         //     return this._$eventSrv.subscribe(event, this);
         // else
-            return this._$eventSrv.subscribe(event, callback, error, complete, this);
+        return this._$eventSrv.subscribe(event, callback, error, complete, this);
     }
 
     /**
@@ -1246,7 +1245,7 @@ export class SipModal extends SipBusinessComponent {
     }
 
     /**关闭对话框 */
-    $close(p?:any) {
+    $close(p?: any) {
         if (arguments.length > 0)
             this.$uiLink.publish(p);
         this._$modal && this._$modal.$publish('SipModal.Close');
@@ -1303,7 +1302,7 @@ export class SipPage extends SipBusinessComponent {
     }
 
     /**关闭页面 */
-    $close(p?:any) {
+    $close(p?: any) {
         if (arguments.length > 0)
             this.$uiLink.publish(p);
 
