@@ -41,6 +41,5 @@ yarn-error.log
 # System Files
 .DS_Store
 Thumbs.db
-package-lock.json
 .rpt2_cache
 .ng_pkg_build
