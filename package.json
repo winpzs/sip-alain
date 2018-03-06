@@ -15,7 +15,7 @@
   "scripts": {
     "test": "ng test -sr -sm=false",
     "build": "ng-packagr -p package.json",
-    "npmpublic": "npm run build && npm pu ./dist",
+    "npmpublish": "npm run build && npm pu ./dist",
     "totest":"npm run build && gulp totest"
   },
   "ngPackage": {
