@@ -220,7 +220,7 @@ export class SipRestService {
         let params: any = p && p.params;
         url = this.absolutelyUrl(url);
         url = this.queryString(url, params);
-        return this.getHttp(this.http.get(url, p.httpOptions), url, 'get', p)
+        return this.getHttp(this.http.get(url, p && p.httpOptions), url, 'get', p)
             .map(this.mapRestData)
             .map(mapData)
             .catch(this.makeCatchData);
@@ -245,7 +245,7 @@ export class SipRestService {
             });
 
         }
-        return this.getHttp(this.http.post(url, formData, p.httpOptions), url, 'post', p)
+        return this.getHttp(this.http.post(url, formData, p && p.httpOptions), url, 'post', p)
             .map(this.mapRestData)
             .map(mapData)
             .catch(this.makeCatchData);
@@ -262,7 +262,7 @@ export class SipRestService {
 
         url = this.absolutelyUrl(url);
         url = this.queryString(url, params);
-        return this.getHttp(this.http.delete(url, p.httpOptions), url, 'delete', p)
+        return this.getHttp(this.http.delete(url, p && p.httpOptions), url, 'delete', p)
             .map(this.mapRestData)
             .map(mapData)
             .catch(this.makeCatchData);
@@ -279,7 +279,7 @@ export class SipRestService {
 
         url = this.absolutelyUrl(url);
         url = this.queryString(url, params);
-        return this.getHttp(this.http.delete(url, p.httpOptions), url, 'put', p)
+        return this.getHttp(this.http.delete(url, p && p.httpOptions), url, 'put', p)
             .map(this.mapRestData)
             .map(mapData)
             .catch(this.makeCatchData);
